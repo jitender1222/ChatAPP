@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 const Home = ({ socket }) => {
   const navigate = useNavigate();
   const [userName, setUserName] = useState("");
-  const [data, setUserData] = useState([]);
+  // const [data, setUserData] = useState([]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -14,10 +14,10 @@ const Home = ({ socket }) => {
     socket.emit("newUser", { userName, socketID: socket.id });
     navigate("/chat");
 
-    socket.on("newUserResponse", (data) => {
-      console.log("data", data);
-      setUserData(data);
-    });
+    // socket.on("newUserResponse", (data) => {
+    //   console.log("data", data);
+    //   setUserData(data);
+    // });
   };
   return (
     <form className="home__container" onSubmit={handleSubmit}>
